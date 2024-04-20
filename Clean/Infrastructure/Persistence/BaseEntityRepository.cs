@@ -13,14 +13,15 @@ using System.Threading.Tasks;
 
 namespace Clean.Infrastructure.Persistence;
 
-public class BaseEntityContext<TId, TEntity, TDto> : IEntityContext<TId, TEntity, TDto>
+public class BaseEntityRepository<TId, TEntity, TDto, TDbContext> : IEntityRepository<TId, TEntity, TDto>
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
         where TDto : IEntityDto<TId, TEntity, TDto>
+        where TDbContext: DbContext
 {
-    private readonly DbContext _context;
+    private readonly TDbContext _context;
 
-    public BaseEntityContext(DbContext context)
+    public BaseEntityRepository(TDbContext context)
     {
         _context = context;
     }
@@ -30,19 +31,15 @@ public class BaseEntityContext<TId, TEntity, TDto> : IEntityContext<TId, TEntity
         return _context.Set<TEntity>().AsQueryable();
     }
 
-    public async Task<ErrorOr<TEntity>> Delete(TId id, CancellationToken cancellationToken)
+    public async Task<ErrorOr<TEntity>> Delete(TEntity entity, CancellationToken cancellationToken)
     {
-        return await Find(id)
-            .ThenAsync(async entity =>
-            {
-                _context.Set<TEntity>().Remove(entity);
-                return await SaveChangesAsync(entity, cancellationToken);
-            });
+        _context.Set<TEntity>().Remove(entity);
+        return await SaveChangesAsync(entity, cancellationToken);
     }
 
-    public async Task<ErrorOr<Deleted>> DeleteMany(IEnumerable<TId> ids, CancellationToken cancellationToken)
+    public async Task<ErrorOr<Deleted>> DeleteMany(IEnumerable<TEntity> entities, CancellationToken cancellationToken)
     {
-        _context.Set<TEntity>().RemoveRange(_context.Set<TEntity>().Where(i => i.Id != null && ids.Contains(i.Id)));
+        _context.Set<TEntity>().RemoveRange(entities);
         return await SaveChangesAsync(Result.Deleted, cancellationToken);
     }
 
@@ -66,7 +63,6 @@ public class BaseEntityContext<TId, TEntity, TDto> : IEntityContext<TId, TEntity
         {
             return Error.Validation(description: $"Id not null");
         }
-        entity.Created();
         await _context.Set<TEntity>().AddAsync(entity);
         return await SaveChangesAsync(entity, cancellationToken);
     }

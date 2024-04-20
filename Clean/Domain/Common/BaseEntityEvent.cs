@@ -1,17 +1,21 @@
 ﻿using Clean.Application.DTO;
 using MediatR;
 
-namespace Clean.Domain.Common
+namespace Clean.Domain.Common;
+
+public class BaseEntityEvent<TId, TEntity, TDto> : BaseEntityEvent
+where TId : IEquatable<TId>
+where TEntity : BaseEntity<TId, TEntity, TDto>
+where TDto : IEntityDto<TId, TEntity, TDto>
 {
-    public class BaseEntityEvent<TId, TEntity, TDto> : INotification
-    where TId : IEquatable<TId>
-    where TEntity : BaseEntity<TId, TEntity, TDto>
-    where TDto : IEntityDto<TId, TEntity, TDto>
+    public BaseEntityEvent(BaseEntity<TId, TEntity, TDto> entity)
     {
-        public BaseEntityEvent(BaseEntity<TId, TEntity, TDto> entity)
-        {
-            Entity = (entity as TEntity)!;
-        }
-        public TEntity Entity { get; set; }
+        Entity = (entity as TEntity)!;
     }
+    public TEntity Entity { get; set; }
+}
+
+public class BaseEntityEvent : INotification
+{
+
 }

@@ -1,6 +1,7 @@
 ﻿using Clean.Application.DTO;
 using Clean.Application.Persistence;
 using Clean.Domain.Common;
+using Clean.Domain.Events;
 using ErrorOr;
 using MediatR;
 
@@ -11,9 +12,9 @@ public class CreateEntityCommandHandler<TId, TEntity, TDto> : IRequestHandler<Cr
     where TEntity : BaseEntity<TId, TEntity, TDto>
     where TDto : IEntityDto<TId, TEntity, TDto>
 {
-    private readonly IEntityContext<TId, TEntity, TDto> _context;
+    private readonly IEntityRepository<TId, TEntity, TDto> _context;
 
-    public CreateEntityCommandHandler(IEntityContext<TId, TEntity, TDto> context)
+    public CreateEntityCommandHandler(IEntityRepository<TId, TEntity, TDto> context)
     {
         _context = context;
     }   
@@ -22,6 +23,7 @@ public class CreateEntityCommandHandler<TId, TEntity, TDto> : IRequestHandler<Cr
     {
         return await request.Dto.ToEntity()
             .ToErrorOr()
+            .Then(entity => entity.AddDomainEvent(new EntityCreationEvent<TId, TEntity, TDto>(entity)))
             .ThenAsync(async entity => await _context.Insert(entity, cancellationToken))
             .Then(entity => entity.ToDto());
     }

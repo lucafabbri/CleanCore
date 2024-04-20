@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Clean.Application.Persistence
 {
-    public interface IEntityContext<TId, TEntity, TDto>
+    public interface IEntityRepository<TId, TEntity, TDto>
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
         where TDto: IEntityDto<TId, TEntity, TDto>
@@ -19,7 +19,7 @@ namespace Clean.Application.Persistence
         Task<ErrorOr<TEntity>> Update(TEntity entity, CancellationToken cancellationToken);
         Task<ErrorOr<TEntity>> Upsert(TEntity entity, CancellationToken cancellationToken);
         Task<ErrorOr<IEnumerable<TEntity>>> UpsertMany(IEnumerable<TEntity> entities, CancellationToken cancellationToken);
-        Task<ErrorOr<TEntity>> Delete(TId id, CancellationToken cancellationToken);
-        Task<ErrorOr<Deleted>> DeleteMany(IEnumerable<TId> ids, CancellationToken cancellationToken);
+        Task<ErrorOr<TEntity>> Delete(TEntity entity, CancellationToken cancellationToken);
+        Task<ErrorOr<Deleted>> DeleteMany(IEnumerable<TEntity> entities, CancellationToken cancellationToken);
     }
 }

@@ -11,9 +11,9 @@ public class FindEntityCommandHandler<TId, TEntity, TDto> : IRequestHandler<Find
     where TEntity : BaseEntity<TId, TEntity, TDto>
     where TDto : IEntityDto<TId, TEntity, TDto>
 {
-    private readonly IEntityContext<TId, TEntity, TDto> _context;
+    private readonly IEntityRepository<TId, TEntity, TDto> _context;
 
-    public FindEntityCommandHandler(IEntityContext<TId, TEntity, TDto> context)
+    public FindEntityCommandHandler(IEntityRepository<TId, TEntity, TDto> context)
     {
         _context = context;
     }
