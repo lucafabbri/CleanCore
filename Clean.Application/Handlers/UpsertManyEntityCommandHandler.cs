@@ -1,9 +1,9 @@
 ﻿using Clean.Application.Commands;
-using Clean.Application.Persistence;
 using Clean.Domain.Common;
 using Clean.Domain.Events;
 using ErrorOr;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Clean.Application.Handlers;
 
@@ -12,9 +12,9 @@ public abstract class UpsertManyEntityCommandHandler<TId, TEntity, TDto> : IRequ
     where TEntity : BaseEntity<TId, TEntity, TDto>
     where TDto : IEntityDto<TId, TEntity, TDto>
 {
-    private readonly IEntityRepository<TId, TEntity, TDto> _context;
+    private readonly DbContext _context;
 
-    public UpsertManyEntityCommandHandler(IEntityRepository<TId, TEntity, TDto> context)
+    public UpsertManyEntityCommandHandler(DbContext context)
     {
         _context = context;
     }
@@ -34,7 +34,29 @@ public abstract class UpsertManyEntityCommandHandler<TId, TEntity, TDto> : IRequ
                 }
                 return entities;
             })
-            .ThenAsync(async entities => await _context.UpsertMany(entities, cancellationToken))
+            .ThenAsync<IEnumerable<TEntity>>(async entities =>
+            {
+                try
+                {
+                    foreach (var entity in entities)
+                    {
+                        if (entity.Id != null)
+                        {
+                            _context.Set<TEntity>().Update(entity);
+                        }
+                        else
+                        {
+                            await _context.Set<TEntity>().AddAsync(entity);
+                        }
+                    }
+                    await _context.SaveChangesAsync(cancellationToken);
+                    return entities.ToErrorOr();
+                }
+                catch (Exception ex)
+                {
+                    return Error.Conflict(ex.Message);
+                }
+            })
             .Then(entities => entities.Select(x => x.ToDto()));
     }
 }

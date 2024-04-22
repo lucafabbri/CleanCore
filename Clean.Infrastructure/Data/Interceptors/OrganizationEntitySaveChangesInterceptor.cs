@@ -1,6 +1,5 @@
 ﻿using Clean.Domain.Common;
 using Clean.Infrastructure.Services;
-using ErrorOr;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 

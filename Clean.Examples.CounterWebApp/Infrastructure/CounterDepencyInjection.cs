@@ -1,8 +1,4 @@
-﻿using Clean.Application.Persistence;
-using Clean.Domain.Common;
-using Clean.Examples.CounterWebApp.Application.Data;
-using Clean.Examples.CounterWebApp.Domain;
-using Clean.Examples.CounterWebApp.Infrastructure.Services;
+﻿using Clean.Examples.CounterWebApp.Infrastructure.Services;
 using Clean.Infrastructure.Data.Interceptors;
 using Clean.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
@@ -30,8 +26,6 @@ namespace Clean.Examples.CounterWebApp.Infrastructure
                 options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
                 options.UseInMemoryDatabase("counters");
             });
-
-            services.AddScoped<IEntityRepository<int, Counter, CounterDto>, CounterRepository>();
 
             services.AddSingleton(TimeProvider.System);
             return services;

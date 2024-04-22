@@ -1,8 +1,8 @@
 ﻿using Clean.Application.Commands;
-using Clean.Application.Persistence;
 using Clean.Domain.Common;
 using ErrorOr;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Clean.Application.Handlers;
 
@@ -11,16 +11,18 @@ public abstract class FindEntityCommandHandler<TId, TEntity, TDto> : IRequestHan
     where TEntity : BaseEntity<TId, TEntity, TDto>
     where TDto : IEntityDto<TId, TEntity, TDto>
 {
-    private readonly IEntityRepository<TId, TEntity, TDto> _context;
+    private readonly DbContext _context;
 
-    public FindEntityCommandHandler(IEntityRepository<TId, TEntity, TDto> context)
+    public FindEntityCommandHandler(DbContext context)
     {
         _context = context;
     }
 
     public virtual async Task<ErrorOr<TDto>> Handle(FindEntityCommand<TId, TEntity, TDto> request, CancellationToken cancellationToken)
     {
-        return await _context.Find(request.Id)
-            .Then(entity => entity.ToDto());
+        return (await _context.Set<TEntity>().FindAsync(request.Id))
+            .ToErrorOr()
+            .FailIf(_ => _ == null, Error.NotFound(description: $"{request.Id} not found"))
+            .Then(entity => entity!.ToDto());
     }
 }

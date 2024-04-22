@@ -5,13 +5,13 @@ public interface IEntityDto<TId, TEntity, TDto>
     where TEntity : BaseEntity<TId, TEntity, TDto>
     where TDto : IEntityDto<TId, TEntity, TDto>
 {
-    TId? Id { get; set; }
-    DateTimeOffset CreatedAt { get; set; }
-    string? CreatedBy { get; set; }
-    DateTimeOffset LastModifiedAt { get; set; }
-    string? LastModifiedBy { get; set; }
-    DateTimeOffset? DeletedAt { get; set; }
-    string? DeletedBy { get; set; }
+    TId? Id { get; }
+    DateTimeOffset CreatedAt { get; }
+    string? CreatedBy { get; }
+    DateTimeOffset LastModifiedAt { get; }
+    string? LastModifiedBy { get; }
+    DateTimeOffset? DeletedAt { get; }
+    string? DeletedBy { get; }
     TEntity ToEntity();
 }
 
@@ -20,12 +20,12 @@ public abstract class EntityDto<TId, TEntity, TDto>:IEntityDto<TId, TEntity, TDt
     where TEntity : BaseEntity<TId, TEntity, TDto>
     where TDto : IEntityDto<TId, TEntity, TDto>
 {
-    public TId? Id { get; set; }
-    public DateTimeOffset CreatedAt { get; set; }
-    public string? CreatedBy { get; set; }
-    public DateTimeOffset LastModifiedAt { get; set; }
-    public string? LastModifiedBy { get; set; }
-    public DateTimeOffset? DeletedAt { get; set; }
-    public string? DeletedBy { get; set; }
+    public TId? Id { get; }
+    public DateTimeOffset CreatedAt { get; }
+    public string? CreatedBy { get; }
+    public DateTimeOffset LastModifiedAt { get; }
+    public string? LastModifiedBy { get; }
+    public DateTimeOffset? DeletedAt { get; }
+    public string? DeletedBy { get; }
     public abstract TEntity ToEntity();
 }

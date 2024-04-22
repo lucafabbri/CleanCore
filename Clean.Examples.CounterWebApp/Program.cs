@@ -26,6 +26,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapEntityEndpoints<int, Counter, CounterDto, CounterCreateDto>();
+app.MapEntity<Counter>().All<Counter>();
 
 app.Run();

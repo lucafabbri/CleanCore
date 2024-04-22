@@ -1,9 +1,9 @@
 ﻿using Clean.Application.Commands;
-using Clean.Application.Persistence;
 using Clean.Domain.Common;
 using Clean.Domain.Events;
 using ErrorOr;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Clean.Application.Handlers;
 
@@ -12,9 +12,9 @@ public abstract class UpsertEntityCommandHandler<TId, TEntity, TDto> : IRequestH
     where TEntity : BaseEntity<TId, TEntity, TDto>
     where TDto : IEntityDto<TId, TEntity, TDto>
 {
-    private readonly IEntityRepository<TId, TEntity, TDto> _context;
+    private readonly DbContext _context;
 
-    public UpsertEntityCommandHandler(IEntityRepository<TId, TEntity, TDto> context)
+    public UpsertEntityCommandHandler(DbContext context)
     {
         _context = context;
     }
@@ -28,7 +28,35 @@ public abstract class UpsertEntityCommandHandler<TId, TEntity, TDto> : IRequestH
                 new EntityCreationEvent<TId, TEntity, TDto>(entity) :
                 new EntityModifiedEvent<TId, TEntity, TDto>(entity)
             ))
-            .ThenAsync(async entity => await _context.Upsert(entity, cancellationToken))
+            .ThenAsync<TEntity>(async entity =>
+            {
+                try
+                {
+                    return await _context.Set<TEntity>().Find(entity.Id)
+                    .ToErrorOr()
+                    .FailIf(_ => _ == null, Error.NotFound())
+                    .Match(
+                        oldEntity => oldEntity!.Update(entity)
+                            .Then(e =>
+                            {
+                                _context.Set<TEntity>().Update(e);
+                                return entity;
+                            }),
+                        _ => { 
+                            _context.Set<TEntity>().Add(entity); 
+                            return entity; 
+                        })
+                    .ThenAsync(async entity =>
+                    {
+                        await _context.SaveChangesAsync(cancellationToken);
+                        return entity.ToErrorOr();
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return Error.Conflict(ex.Message);
+                }
+            })
             .Then(entity => entity.ToDto());
     }
 }

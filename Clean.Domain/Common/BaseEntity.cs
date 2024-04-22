@@ -61,7 +61,7 @@ public abstract class BaseEntity<TId, TEntity, TDto>:BaseEntity
 
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public TId? Id { get; protected set; }
+    public TId? Id { get; set; }
 
     public abstract ErrorOr<TEntity> Validate();
 
@@ -96,4 +96,52 @@ public abstract class BaseEntity<TId, TEntity, TDto>:BaseEntity
     }
 
     public abstract TDto ToDto();
+}
+
+public abstract class BaseEntityAndDto<TId, TEntity> : BaseEntity<TId, TEntity, TEntity>, IEntityDto<TId, TEntity, TEntity>, ICreateEntityDto<TId, TEntity, TEntity>
+    where TId : IEquatable<TId>
+    where TEntity : BaseEntityAndDto<TId, TEntity>
+{
+    protected BaseEntityAndDto()
+    {
+    }
+
+    protected BaseEntityAndDto(TId? id) : base(id)
+    {
+    }
+
+    public override TEntity ToDto()
+    {
+        return (this as TEntity)!;
+    }
+
+    public TEntity ToEntity()
+    {
+        return (this as TEntity)!;
+    }
+}
+
+public abstract class BaseIntEntity<TEntity, TDto> : BaseEntity<int, TEntity, TDto>
+    where TEntity : BaseEntity<int, TEntity, TDto>
+    where TDto : IEntityDto<int, TEntity, TDto>
+{
+    protected BaseIntEntity()
+    {
+    }
+
+    protected BaseIntEntity(int id) : base(id)
+    {
+    }
+}
+
+public abstract class BaseIntEntityAndDto<TEntity> : BaseEntityAndDto<int, TEntity>
+    where TEntity : BaseEntityAndDto<int, TEntity>
+{
+    protected BaseIntEntityAndDto()
+    {
+    }
+
+    protected BaseIntEntityAndDto(int id) : base(id)
+    {
+    }
 }

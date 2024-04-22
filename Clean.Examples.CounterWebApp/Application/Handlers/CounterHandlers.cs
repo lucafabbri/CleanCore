@@ -1,61 +1,61 @@
 ﻿using Clean.Application.Handlers;
-using Clean.Application.Persistence;
 using Clean.Examples.CounterWebApp.Domain;
+using Clean.Examples.CounterWebApp.Infrastructure;
 
 namespace Clean.Examples.CounterWebApp.Application.Handlers;
 
-public class CreateCounterHandler : CreateEntityCommandHandler<int, Counter, CounterDto>
+public class CreateCounterHandler : CreateEntityCommandHandler<int, Counter, Counter>
 {
-    public CreateCounterHandler(IEntityRepository<int, Counter, CounterDto> context) : base(context)
+    public CreateCounterHandler(CounterDbContext context) : base(context)
     {
     }
 }
 
-public class ModifyCounterHandler : ModifyEntityCommandHandler<int, Counter, CounterDto>
+public class ModifyCounterHandler : ModifyEntityCommandHandler<int, Counter, Counter>
 {
-    public ModifyCounterHandler(IEntityRepository<int, Counter, CounterDto> context) : base(context)
+    public ModifyCounterHandler(CounterDbContext context) : base(context)
     {
     }
 }
 
-public class UpsertCounterHandler : UpsertEntityCommandHandler<int, Counter, CounterDto>
+public class UpsertCounterHandler : UpsertEntityCommandHandler<int, Counter, Counter>
 {
-    public UpsertCounterHandler(IEntityRepository<int, Counter, CounterDto> context) : base(context)
+    public UpsertCounterHandler(CounterDbContext context) : base(context)
     {
     }
 }
 
-public class UpsertManyCounterHandler : UpsertManyEntityCommandHandler<int, Counter, CounterDto>
+public class UpsertManyCounterHandler : UpsertManyEntityCommandHandler<int, Counter, Counter>
 {
-    public UpsertManyCounterHandler(IEntityRepository<int, Counter, CounterDto> context) : base(context)
+    public UpsertManyCounterHandler(CounterDbContext context) : base(context)
     {
     }
 }
 
-public class DeleteCounterHandler : DeleteEntityCommandHandler<int, Counter, CounterDto>
+public class DeleteCounterHandler : DeleteEntityCommandHandler<int, Counter, Counter>
 {
-    public DeleteCounterHandler(IEntityRepository<int, Counter, CounterDto> context) : base(context)
+    public DeleteCounterHandler(CounterDbContext context) : base(context)
     {
     }
 }
 
-public class DeleteManyCounterHandler : DeleteManyEntityCommandHandler<int, Counter, CounterDto>
+public class DeleteManyCounterHandler : DeleteManyEntityCommandHandler<int, Counter, Counter>
 {
-    public DeleteManyCounterHandler(IEntityRepository<int, Counter, CounterDto> context) : base(context)
+    public DeleteManyCounterHandler(CounterDbContext context) : base(context)
     {
     }
 }
 
-public class FindCounterHandler : FindEntityCommandHandler<int, Counter, CounterDto>
+public class FindCounterHandler : FindEntityCommandHandler<int, Counter, Counter>
 {
-    public FindCounterHandler(IEntityRepository<int, Counter, CounterDto> context) : base(context)
+    public FindCounterHandler(CounterDbContext context) : base(context)
     {
     }
 }
 
-public class FindAllCounterHandler : FindAllEntityCommandHandler<int, Counter, CounterDto>
+public class FindAllCounterHandler : FindAllEntityCommandHandler<int, Counter, Counter>
 {
-    public FindAllCounterHandler(IEntityRepository<int, Counter, CounterDto> context) : base(context)
+    public FindAllCounterHandler(CounterDbContext context) : base(context)
     {
     }
 }
