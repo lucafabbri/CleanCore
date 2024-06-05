@@ -1,6 +1,6 @@
 using ErrorOr;
 
-namespace Clean.Core.Extensions;
+namespace CleanCore.Core.Extensions;
 
 /// <summary>
 /// The error or extension class

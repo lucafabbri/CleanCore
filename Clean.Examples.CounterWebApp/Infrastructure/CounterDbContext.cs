@@ -1,7 +1,7 @@
-using Clean.Examples.CounterWebApp.Domain;
+using CleanCore.Examples.CounterWebApp.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clean.Examples.CounterWebApp.Infrastructure
+namespace CleanCore.Examples.CounterWebApp.Infrastructure
 {
     /// <summary>
     /// The counter db context class

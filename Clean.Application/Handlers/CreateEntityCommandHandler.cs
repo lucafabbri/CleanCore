@@ -1,11 +1,11 @@
-using Clean.Application.Commands;
-using Clean.Domain.Common;
-using Clean.Domain.Events;
+using CleanCore.Application.Commands;
+using CleanCore.Domain.Common;
+using CleanCore.Domain.Events;
 using ErrorOr;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clean.Application.Handlers;
+namespace CleanCore.Application.Handlers;
 
 /// <summary>
 /// The create entity command handler class

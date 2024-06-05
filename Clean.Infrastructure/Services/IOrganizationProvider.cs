@@ -1,7 +1,7 @@
-using Clean.Domain.Common;
+using CleanCore.Domain.Common;
 using ErrorOr;
 
-namespace Clean.Infrastructure.Services
+namespace CleanCore.Infrastructure.Services
 {
     /// <summary>
     /// The organization provider interface

@@ -1,14 +1,14 @@
 
-using Clean.Application.Commands;
-using Clean.Domain.Common;
-using Clean.Web.Extensions;
+using CleanCore.Application.Commands;
+using CleanCore.Domain.Common;
+using CleanCore.Web.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 
-namespace Clean.Web.Endpoints;
+namespace CleanCore.Web.Endpoints;
 
 /// <summary>
 /// The entity endpoints extension class

@@ -1,10 +1,10 @@
-using Clean.Application.Commands;
-using Clean.Domain.Common;
+using CleanCore.Application.Commands;
+using CleanCore.Domain.Common;
 using ErrorOr;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clean.Application.Handlers;
+namespace CleanCore.Application.Handlers;
 
 /// <summary>
 /// The find entity command handler class

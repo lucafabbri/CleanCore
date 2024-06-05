@@ -1,8 +1,8 @@
-using Clean.Domain.Common;
+using CleanCore.Domain.Common;
 using ErrorOr;
 using MediatR;
 
-namespace Clean.Application.Commands;
+namespace CleanCore.Application.Commands;
 /// <summary>
 /// The create entity command
 /// </summary>

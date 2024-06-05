@@ -1,6 +1,6 @@
-using Clean.Domain.Common;
+using CleanCore.Domain.Common;
 
-namespace Clean.Domain.Events;
+namespace CleanCore.Domain.Events;
 
 /// <summary>
 /// The entity creation event class

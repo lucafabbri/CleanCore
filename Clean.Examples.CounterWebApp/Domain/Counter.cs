@@ -1,7 +1,7 @@
-using Clean.Domain.Common;
+using CleanCore.Domain.Common;
 using ErrorOr;
 
-namespace Clean.Examples.CounterWebApp.Domain;
+namespace CleanCore.Examples.CounterWebApp.Domain;
 
 /// <summary>
 /// The counter class

@@ -1,7 +1,7 @@
 using ErrorOr;
 using Microsoft.AspNetCore.Http;
 
-namespace Clean.Web.Extensions
+namespace CleanCore.Web.Extensions
 {
     /// <summary>
     /// The results extension class

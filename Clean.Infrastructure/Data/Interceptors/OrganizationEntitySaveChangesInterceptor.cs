@@ -1,9 +1,9 @@
-using Clean.Domain.Common;
-using Clean.Infrastructure.Services;
+using CleanCore.Domain.Common;
+using CleanCore.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace Clean.Infrastructure.Data.Interceptors;
+namespace CleanCore.Infrastructure.Data.Interceptors;
 
 /// <summary>
 /// The organization entity save changes interceptor class

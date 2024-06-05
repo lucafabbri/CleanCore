@@ -1,9 +1,9 @@
-using Clean.Domain.Common;
+using CleanCore.Domain.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace Clean.Infrastructure.Data.Interceptors;
+namespace CleanCore.Infrastructure.Data.Interceptors;
 
 /// <summary>
 /// The dispatch domain events interceptor class

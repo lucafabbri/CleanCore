@@ -1,11 +1,11 @@
-using Clean.Examples.CounterWebApp.Infrastructure.Services;
-using Clean.Infrastructure.Data.Interceptors;
-using Clean.Infrastructure.Services;
+using CleanCore.Examples.CounterWebApp.Infrastructure.Services;
+using CleanCore.Infrastructure.Data.Interceptors;
+using CleanCore.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Reflection;
 
-namespace Clean.Examples.CounterWebApp.Infrastructure
+namespace CleanCore.Examples.CounterWebApp.Infrastructure
 {
     /// <summary>
     /// The counter depency injection class

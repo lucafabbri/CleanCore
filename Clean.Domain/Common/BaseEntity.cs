@@ -2,7 +2,7 @@ using ErrorOr;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Clean.Domain.Common;
+namespace CleanCore.Domain.Common;
 
 /// <summary>
 /// The base entity class

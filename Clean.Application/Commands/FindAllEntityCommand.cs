@@ -1,7 +1,7 @@
-using Clean.Domain.Common;
+using CleanCore.Domain.Common;
 using MediatR;
 
-namespace Clean.Application.Commands;
+namespace CleanCore.Application.Commands;
 
 /// <summary>
 /// The find all entity command

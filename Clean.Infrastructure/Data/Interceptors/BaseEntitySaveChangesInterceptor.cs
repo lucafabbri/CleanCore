@@ -1,10 +1,10 @@
-using Clean.Domain.Common;
-using Clean.Infrastructure.Services;
+using CleanCore.Domain.Common;
+using CleanCore.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Clean.Core.Extensions;
+using CleanCore.Core.Extensions;
 
-namespace Clean.Infrastructure.Data.Interceptors;
+namespace CleanCore.Infrastructure.Data.Interceptors;
 
 /// <summary>
 /// The base entity save changes interceptor class

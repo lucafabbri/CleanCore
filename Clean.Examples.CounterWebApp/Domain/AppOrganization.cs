@@ -1,6 +1,6 @@
-using Clean.Domain.Common;
+using CleanCore.Domain.Common;
 
-namespace Clean.Examples.CounterWebApp.Domain
+namespace CleanCore.Examples.CounterWebApp.Domain
 {
     /// <summary>
     /// The app organization class

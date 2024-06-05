@@ -1,8 +1,8 @@
-using Clean.Application.Handlers;
-using Clean.Examples.CounterWebApp.Domain;
-using Clean.Examples.CounterWebApp.Infrastructure;
+using CleanCore.Application.Handlers;
+using CleanCore.Examples.CounterWebApp.Domain;
+using CleanCore.Examples.CounterWebApp.Infrastructure;
 
-namespace Clean.Examples.CounterWebApp.Application.Handlers;
+namespace CleanCore.Examples.CounterWebApp.Application.Handlers;
 
 /// <summary>
 /// The create counter handler class

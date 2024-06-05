@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Clean.Domain.Common;
+namespace CleanCore.Domain.Common;
 
 /// <summary>
 /// The base entity event class

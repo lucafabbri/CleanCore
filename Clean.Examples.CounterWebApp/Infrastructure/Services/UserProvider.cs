@@ -1,9 +1,9 @@
-using Clean.Domain.Common;
-using Clean.Examples.CounterWebApp.Domain;
-using Clean.Infrastructure.Services;
+using CleanCore.Domain.Common;
+using CleanCore.Examples.CounterWebApp.Domain;
+using CleanCore.Infrastructure.Services;
 using ErrorOr;
 
-namespace Clean.Examples.CounterWebApp.Infrastructure.Services
+namespace CleanCore.Examples.CounterWebApp.Infrastructure.Services
 {
     /// <summary>
     /// The user provider class

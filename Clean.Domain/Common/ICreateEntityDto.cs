@@ -1,4 +1,4 @@
-namespace Clean.Domain.Common;
+namespace CleanCore.Domain.Common;
 
 /// <summary>
 /// The create entity dto interface

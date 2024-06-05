@@ -1,6 +1,6 @@
-using Clean.Examples.CounterWebApp.Domain;
-using Clean.Examples.CounterWebApp.Infrastructure;
-using Clean.Web.Endpoints;
+using CleanCore.Examples.CounterWebApp.Domain;
+using CleanCore.Examples.CounterWebApp.Infrastructure;
+using CleanCore.Web.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 

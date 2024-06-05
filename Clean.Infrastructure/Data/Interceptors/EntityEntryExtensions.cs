@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace Clean.Infrastructure.Data.Interceptors;
+namespace CleanCore.Infrastructure.Data.Interceptors;
 
 /// <summary>
 /// The entity entry extensions class

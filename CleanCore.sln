@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Domain", "Clean.Domain\Clean.Domain.csproj", "{58A13D1C-6262-42C7-BC3D-1B28CA46C243}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Domain", "Clean.Domain\Clean.Domain.csproj", "{58A13D1C-6262-42C7-BC3D-1B28CA46C243}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Application", "Clean.Application\Clean.Application.csproj", "{6F52D931-D8EA-488F-B6BD-FFCCB5A9C1A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Application", "Clean.Application\Clean.Application.csproj", "{6F52D931-D8EA-488F-B6BD-FFCCB5A9C1A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Infrastructure", "Clean.Infrastructure\Clean.Infrastructure.csproj", "{EA3498A3-97EF-45B8-A56B-3BB503F652AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Infrastructure", "Clean.Infrastructure\Clean.Infrastructure.csproj", "{EA3498A3-97EF-45B8-A56B-3BB503F652AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Web", "Clean.Web\Clean.Web.csproj", "{30FE903A-7BF3-4F0E-920D-9C3E1E0F4A0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Web", "Clean.Web\Clean.Web.csproj", "{30FE903A-7BF3-4F0E-920D-9C3E1E0F4A0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Examples.CounterWebApp", "Clean.Examples.CounterWebApp\Clean.Examples.CounterWebApp.csproj", "{C03E0306-8FB8-41D4-95E2-4FEF7A7F6AD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Examples.CounterWebApp", "Clean.Examples.CounterWebApp\Clean.Examples.CounterWebApp.csproj", "{C03E0306-8FB8-41D4-95E2-4FEF7A7F6AD6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{8C92EB51-CA6A-4B22-BC07-815B7F050673}"
 EndProject
