@@ -12,10 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Clean.Application\Clean..Application.csproj" />
-    <ProjectReference Include="..\Clean.Domain\Clean.Domain.csproj" />
-    <ProjectReference Include="..\Clean.Infrastructure\Clean.Infrastructure.csproj" />
-    <ProjectReference Include="..\Clean.Web\Clean.Web.csproj" />
+    <ProjectReference Include="..\CleanCore.Application\CleanCore.Application.csproj" />
+    <ProjectReference Include="..\CleanCore.Domain\CleanCore.Domain.csproj" />
+    <ProjectReference Include="..\CleanCore.Infrastructure\CleanCore.Infrastructure.csproj" />
+    <ProjectReference Include="..\CleanCore.Web\CleanCore.Web.csproj" />
   </ItemGroup>
 
 </Project>

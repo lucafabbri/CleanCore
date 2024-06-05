@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Clean.Web": {
+    "CleanCore.Web": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

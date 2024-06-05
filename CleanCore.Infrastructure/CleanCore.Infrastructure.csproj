@@ -7,13 +7,15 @@
     <Version>0.0.2</Version>
   </PropertyGroup>
 
+
   <ItemGroup>
     <PackageReference Include="ErrorOr" Version="2.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Clean.Domain\Clean.Domain.csproj" />
+    <ProjectReference Include="..\CleanCore.Application\CleanCore.Application.csproj" />
+    <ProjectReference Include="..\CleanCore.Domain\CleanCore.Domain.csproj" />
   </ItemGroup>
 
 </Project>
