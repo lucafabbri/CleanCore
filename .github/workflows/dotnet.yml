@@ -9,6 +9,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    environment: 
+      name: Prod
+
     steps:
     - uses: actions/checkout@v2
 
