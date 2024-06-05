@@ -1,4 +1,4 @@
-﻿using Clean.Application.Commands;
+using Clean.Application.Commands;
 using Clean.Domain.Common;
 using Clean.Domain.Events;
 using ErrorOr;
@@ -7,18 +7,35 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Clean.Application.Handlers;
 
+/// <summary>
+/// The upsert many entity command handler class
+/// </summary>
+/// <seealso cref="IRequestHandler{UpsertManyEntityCommand{TId, TEntity, TDto}, ErrorOr{IEnumerable{TDto}}}"/>
 public abstract class UpsertManyEntityCommandHandler<TId, TEntity, TDto> : IRequestHandler<UpsertManyEntityCommand<TId, TEntity, TDto>, ErrorOr<IEnumerable<TDto>>>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>
     where TDto : IEntityDto<TId, TEntity, TDto>
 {
+    /// <summary>
+    /// The context
+    /// </summary>
     private readonly DbContext _context;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="UpsertManyEntityCommandHandler{TId,TEntity,TDto}"/> class
+    /// </summary>
+    /// <param name="context">The context</param>
     public UpsertManyEntityCommandHandler(DbContext context)
     {
         _context = context;
     }
 
+    /// <summary>
+    /// Handles the request
+    /// </summary>
+    /// <param name="request">The request</param>
+    /// <param name="cancellationToken">The cancellation token</param>
+    /// <returns>A task containing an error or of i enumerable t dto</returns>
     public virtual async Task<ErrorOr<IEnumerable<TDto>>> Handle(UpsertManyEntityCommand<TId, TEntity, TDto> request, CancellationToken cancellationToken)
     {
         return await request.Dtos.Select(x => x.ToEntity()).ToErrorOr()

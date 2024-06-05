@@ -2,8 +2,9 @@
 
     <PropertyGroup>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageOutputPath>nupkgs</PackageOutputPath>
         <LangVersion>latestmajor</LangVersion>
-        <RepositoryUrl>https://github.com/lucafabbri/Clean/RepositoryUrl>
+        <RepositoryUrl>https://github.com/lucafabbri/Clean</RepositoryUrl>
         <Authors>Luca Fabbri</Authors>
         <RepositoryType>git</RepositoryType>
         <Copyright>2024 Luca Fabbri</Copyright>
@@ -15,6 +16,7 @@
         <Nullable>enable</Nullable>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <ImplicitUsings>enable</ImplicitUsings>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
 </Project>

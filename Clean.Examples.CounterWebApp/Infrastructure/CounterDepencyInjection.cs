@@ -1,4 +1,4 @@
-﻿using Clean.Examples.CounterWebApp.Infrastructure.Services;
+using Clean.Examples.CounterWebApp.Infrastructure.Services;
 using Clean.Infrastructure.Data.Interceptors;
 using Clean.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
@@ -7,8 +7,16 @@ using System.Reflection;
 
 namespace Clean.Examples.CounterWebApp.Infrastructure
 {
+    /// <summary>
+    /// The counter depency injection class
+    /// </summary>
     public static class CounterDepencyInjection
     {
+        /// <summary>
+        /// Adds the counters using the specified services
+        /// </summary>
+        /// <param name="services">The services</param>
+        /// <returns>The services</returns>
         public static IServiceCollection AddCounters(this IServiceCollection services)
         {
             services.AddSingleton<IUserProvider, UserProvider>();

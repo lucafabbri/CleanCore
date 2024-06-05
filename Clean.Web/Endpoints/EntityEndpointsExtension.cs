@@ -1,4 +1,4 @@
-﻿
+
 using Clean.Application.Commands;
 using Clean.Domain.Common;
 using Clean.Web.Extensions;
@@ -10,13 +10,29 @@ using Microsoft.AspNetCore.Routing;
 
 namespace Clean.Web.Endpoints;
 
+/// <summary>
+/// The entity endpoints extension class
+/// </summary>
 public static class EntityEndpointsExtension
 {
+    /// <summary>
+    /// Maps the entity using the specified builder
+    /// </summary>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder MapEntity<TEntity>(this IEndpointRouteBuilder builder)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
         return builder.MapEntity<int, TEntity>();
     }
+    /// <summary>
+    /// Maps the entity using the specified builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder MapEntity<TId, TEntity>(this IEndpointRouteBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
@@ -24,6 +40,15 @@ public static class EntityEndpointsExtension
         return builder.MapEntity<TId, TEntity, TEntity, TEntity>();
     }
 
+    /// <summary>
+    /// Maps the entity using the specified builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <typeparam name="TCreateDto">The create dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder MapEntity<TId, TEntity, TDto, TCreateDto>(this IEndpointRouteBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
@@ -37,6 +62,12 @@ public static class EntityEndpointsExtension
             .WithOpenApi();
     }
 
+    /// <summary>
+    /// Alls the builder
+    /// </summary>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder All<TEntity>(this RouteGroupBuilder builder)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
@@ -51,6 +82,13 @@ public static class EntityEndpointsExtension
             .DeleteMany<TEntity>();
     }
 
+    /// <summary>
+    /// Alls the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder All<TId, TEntity>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
@@ -66,6 +104,15 @@ public static class EntityEndpointsExtension
             .DeleteMany<TId, TEntity>();
     }
 
+    /// <summary>
+    /// Alls the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <typeparam name="TCreateDto">The create dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder All<TId, TEntity, TDto, TCreateDto>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
@@ -83,54 +130,109 @@ public static class EntityEndpointsExtension
             .DeleteMany<TId, TEntity, TDto>();
     }
 
+    /// <summary>
+    /// Finds the all using the specified builder
+    /// </summary>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder FindAll<TEntity>(this RouteGroupBuilder builder)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
         return builder.FindAll<int, TEntity>();
     }
 
+    /// <summary>
+    /// Finds the builder
+    /// </summary>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder Find<TEntity>(this RouteGroupBuilder builder)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
         return builder.Find<int, TEntity>();
     }
 
+    /// <summary>
+    /// Creates the builder
+    /// </summary>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder Create<TEntity>(this RouteGroupBuilder builder)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
         return builder.Create<int, TEntity>();
     }
 
+    /// <summary>
+    /// Modifies the builder
+    /// </summary>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder Modify<TEntity>(this RouteGroupBuilder builder)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
         return builder.Modify<int, TEntity>();
     }
 
+    /// <summary>
+    /// Upserts the builder
+    /// </summary>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder Upsert<TEntity>(this RouteGroupBuilder builder)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
         return builder.Upsert<int, TEntity>();
     }
 
+    /// <summary>
+    /// Upserts the many using the specified builder
+    /// </summary>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder UpsertMany<TEntity>(this RouteGroupBuilder builder)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
         return builder.UpsertMany<int, TEntity>();
     }
 
+    /// <summary>
+    /// Deletes the builder
+    /// </summary>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder Delete<TEntity>(this RouteGroupBuilder builder)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
         return builder.Delete<int, TEntity>();
     }
 
+    /// <summary>
+    /// Deletes the many using the specified builder
+    /// </summary>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder DeleteMany<TEntity>(this RouteGroupBuilder builder)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
         return builder.DeleteMany<int, TEntity>();
     }
 
+    /// <summary>
+    /// Finds the all using the specified builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder FindAll<TId, TEntity>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
@@ -138,6 +240,13 @@ public static class EntityEndpointsExtension
         return builder.FindAll<TId, TEntity, TEntity>();
     }
 
+    /// <summary>
+    /// Finds the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder Find<TId, TEntity>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
@@ -145,6 +254,13 @@ public static class EntityEndpointsExtension
         return builder.Find<TId, TEntity, TEntity>();
     }
 
+    /// <summary>
+    /// Creates the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder Create<TId, TEntity>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
@@ -152,6 +268,13 @@ public static class EntityEndpointsExtension
         return builder.Create<TId, TEntity, TEntity, TEntity>();
     }
 
+    /// <summary>
+    /// Modifies the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder Modify<TId, TEntity>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
@@ -159,6 +282,13 @@ public static class EntityEndpointsExtension
         return builder.Modify<TId, TEntity, TEntity>();
     }
 
+    /// <summary>
+    /// Upserts the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder Upsert<TId, TEntity>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
@@ -166,6 +296,13 @@ public static class EntityEndpointsExtension
         return builder.Upsert<TId, TEntity, TEntity>();
     }
 
+    /// <summary>
+    /// Upserts the many using the specified builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder UpsertMany<TId, TEntity>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
@@ -173,6 +310,13 @@ public static class EntityEndpointsExtension
         return builder.UpsertMany<TId, TEntity, TEntity>();
     }
 
+    /// <summary>
+    /// Deletes the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder Delete<TId, TEntity>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
@@ -180,6 +324,13 @@ public static class EntityEndpointsExtension
         return builder.Delete<TId, TEntity, TEntity>();
     }
 
+    /// <summary>
+    /// Deletes the many using the specified builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The route group builder</returns>
     public static RouteGroupBuilder DeleteMany<TId, TEntity>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
@@ -187,6 +338,14 @@ public static class EntityEndpointsExtension
         return builder.DeleteMany<TId, TEntity, TEntity>();
     }
 
+    /// <summary>
+    /// Finds the all using the specified builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The builder</returns>
     public static RouteGroupBuilder FindAll<TId, TEntity, TDto>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
@@ -200,6 +359,14 @@ public static class EntityEndpointsExtension
         return builder;
     }
 
+    /// <summary>
+    /// Finds the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The builder</returns>
     public static RouteGroupBuilder Find<TId, TEntity, TDto>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
@@ -213,6 +380,15 @@ public static class EntityEndpointsExtension
         return builder;
     }
 
+    /// <summary>
+    /// Creates the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <typeparam name="TCreateDto">The create dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The builder</returns>
     public static RouteGroupBuilder Create<TId, TEntity, TDto, TCreateDto>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
@@ -226,6 +402,14 @@ public static class EntityEndpointsExtension
         return builder;
     }
 
+    /// <summary>
+    /// Modifies the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The builder</returns>
     public static RouteGroupBuilder Modify<TId, TEntity, TDto>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
@@ -239,6 +423,14 @@ public static class EntityEndpointsExtension
         return builder;
     }
 
+    /// <summary>
+    /// Upserts the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The builder</returns>
     public static RouteGroupBuilder Upsert<TId, TEntity, TDto>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
@@ -252,6 +444,14 @@ public static class EntityEndpointsExtension
         return builder;
     }
 
+    /// <summary>
+    /// Upserts the many using the specified builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The builder</returns>
     public static RouteGroupBuilder UpsertMany<TId, TEntity, TDto>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
@@ -265,6 +465,14 @@ public static class EntityEndpointsExtension
         return builder;
     }
 
+    /// <summary>
+    /// Deletes the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The builder</returns>
     public static RouteGroupBuilder Delete<TId, TEntity, TDto>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
@@ -278,6 +486,14 @@ public static class EntityEndpointsExtension
         return builder;
     }
 
+    /// <summary>
+    /// Deletes the many using the specified builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <returns>The builder</returns>
     public static RouteGroupBuilder DeleteMany<TId, TEntity, TDto>(this RouteGroupBuilder builder)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
