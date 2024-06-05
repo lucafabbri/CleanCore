@@ -1,0 +1,20 @@
+<Project>
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <LangVersion>latestmajor</LangVersion>
+        <RepositoryUrl>https://github.com/lucafabbri/Clean/RepositoryUrl>
+        <Authors>Luca Fabbri</Authors>
+        <RepositoryType>git</RepositoryType>
+        <Copyright>2024 Luca Fabbri</Copyright>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <PackageTags>Clean</PackageTags>
+        <PackageProjectUrl>https://github.com/lucafabbri/Clean</PackageProjectUrl>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <Nullable>enable</Nullable>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+</Project>
