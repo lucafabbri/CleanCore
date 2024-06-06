@@ -20,11 +20,13 @@ public static class EntityEndpointsExtension
     /// </summary>
     /// <typeparam name="TEntity">The entity</typeparam>
     /// <param name="builder">The builder</param>
+    /// <param name="prefix">the prefix</param>
+    /// <param name="version">The version</param>
     /// <returns>The route group builder</returns>
-    public static RouteGroupBuilder MapEntity<TEntity>(this IEndpointRouteBuilder builder)
+    public static RouteGroupBuilder MapEntity<TEntity>(this IEndpointRouteBuilder builder, string prefix = "api", int? version = null)
         where TEntity : BaseIntEntityAndDto<TEntity>
     {
-        return builder.MapEntity<int, TEntity>();
+        return builder.MapEntity<int, TEntity>(prefix, version);
     }
     /// <summary>
     /// Maps the entity using the specified builder
@@ -32,12 +34,14 @@ public static class EntityEndpointsExtension
     /// <typeparam name="TId">The id</typeparam>
     /// <typeparam name="TEntity">The entity</typeparam>
     /// <param name="builder">The builder</param>
+    /// <param name="prefix">the prefix</param>
+    /// <param name="version">The version</param>
     /// <returns>The route group builder</returns>
-    public static RouteGroupBuilder MapEntity<TId, TEntity>(this IEndpointRouteBuilder builder)
+    public static RouteGroupBuilder MapEntity<TId, TEntity>(this IEndpointRouteBuilder builder, string prefix = "api", int? version = null)
         where TId : IEquatable<TId>
         where TEntity : BaseEntityAndDto<TId, TEntity>
     {
-        return builder.MapEntity<TId, TEntity, TEntity, TEntity>();
+        return builder.MapEntity<TId, TEntity, TEntity, TEntity>(prefix, version);
     }
 
     /// <summary>
@@ -48,8 +52,10 @@ public static class EntityEndpointsExtension
     /// <typeparam name="TDto">The dto</typeparam>
     /// <typeparam name="TCreateDto">The create dto</typeparam>
     /// <param name="builder">The builder</param>
+    /// <param name="prefix">the prefix</param>
+    /// <param name="version">The version</param>
     /// <returns>The route group builder</returns>
-    public static RouteGroupBuilder MapEntity<TId, TEntity, TDto, TCreateDto>(this IEndpointRouteBuilder builder)
+    public static RouteGroupBuilder MapEntity<TId, TEntity, TDto, TCreateDto>(this IEndpointRouteBuilder builder, string prefix = "api", int? version = null)
         where TId : IEquatable<TId>
         where TEntity : BaseEntity<TId, TEntity, TDto>
         where TDto : IEntityDto<TId, TEntity, TDto>
@@ -57,7 +63,7 @@ public static class EntityEndpointsExtension
     {
         var groupName = typeof(TEntity).Name;
         return builder
-            .MapGroup($"/api/{groupName}")
+            .MapGroup($"/{prefix}/v{version ?? 1}/{groupName}")
             .WithTags(groupName)
             .WithOpenApi();
     }
