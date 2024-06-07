@@ -20,6 +20,7 @@ public class Counter : BaseIntEntity<Counter, CounterDto>
     /// <param name="value">The value</param>
     public Counter(int value)
     {
+        CounterType = CounterType.Counter;
         Value = value;
     }
 
@@ -30,19 +31,30 @@ public class Counter : BaseIntEntity<Counter, CounterDto>
     /// <param name="value">The value</param>
     public Counter(int id, int value) : base(id)
     {
+        CounterType = CounterType.Counter;
         Value = value;
     }
+
+    /// <summary>
+    /// Gets or sets the value of the counter type
+    /// </summary>
+    public CounterType CounterType { get; set; }
 
     /// <summary>
     /// Gets or sets the value of the value
     /// </summary>
     public int Value { get; set; }
 
+    /// <summary>
+    /// Returns the dto
+    /// </summary>
+    /// <returns>The counter dto</returns>
     public override CounterDto ToDto()
     {
         return new CounterDto { 
             Id = Id,
             Value = Value,
+            CounterType = CounterType,
             CreatedBy = CreatedBy,
             CreatedAt = CreatedAt,
             DeletedAt = DeletedAt,
