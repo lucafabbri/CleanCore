@@ -99,6 +99,7 @@ public static class CleanApplication
         {
             options.OperationFilter<SwaggerDefaultValues>();
             options.AddEnumsWithValuesFixFilters();
+            options.UseAllOfToExtendReferenceSchemas();
         });
         builder.Services.AddSwaggerGenNewtonsoftSupport();
         builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
