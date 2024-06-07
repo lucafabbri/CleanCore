@@ -29,6 +29,7 @@ public static class EntityEndpointsExtension
     {
         return builder.MapEntity<int, TEntity>(prefix, versions);
     }
+
     /// <summary>
     /// Maps the entity using the specified builder
     /// </summary>
@@ -43,6 +44,24 @@ public static class EntityEndpointsExtension
         where TEntity : BaseEntityAndDto<TId, TEntity>
     {
         return builder.MapEntity<TId, TEntity, TEntity, TEntity>(prefix, versions);
+    }
+
+    /// <summary>
+    /// Maps the entity using the specified builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The entity</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <param name="prefix">the prefix</param>
+    /// <param name="versions">The versions</param>
+    /// <returns>The route group builder</returns>
+    public static RouteGroupBuilder MapEntity<TId, TEntity, TDto>(this IEndpointRouteBuilder builder, string prefix = "api", params int[] versions)
+        where TId : IEquatable<TId>
+        where TEntity : BaseEntity<TId, TEntity, TDto>
+        where TDto : IEntityDto<TId, TEntity, TDto>, ICreateEntityDto<TId, TEntity, TDto>
+    {
+        return builder.MapEntity<TId, TEntity, TDto, TDto>(prefix, versions);
     }
 
     /// <summary>
@@ -115,6 +134,23 @@ public static class EntityEndpointsExtension
             .UpsertMany<TId, TEntity>(version)
             .Delete<TId, TEntity>(version)
             .DeleteMany<TId, TEntity>(version);
+    }
+
+    /// <summary>
+    /// Alls the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <param name="version">The version</param>
+    /// <returns>The route group builder</returns>
+    public static RouteGroupBuilder All<TId, TEntity, TDto>(this RouteGroupBuilder builder, int version)
+        where TId : IEquatable<TId>
+        where TEntity : BaseEntity<TId, TEntity, TDto>
+        where TDto : IEntityDto<TId, TEntity, TDto>, ICreateEntityDto<TId, TEntity, TDto>
+    {
+        return All<TId, TEntity, TDto, TDto>(builder, version);
     }
 
     /// <summary>
@@ -423,6 +459,23 @@ public static class EntityEndpointsExtension
             .Produces<Error>(422).MapToApiVersion(version);
 
         return builder;
+    }
+
+    /// <summary>
+    /// Creates the builder
+    /// </summary>
+    /// <typeparam name="TId">The id</typeparam>
+    /// <typeparam name="TEntity">The entity</typeparam>
+    /// <typeparam name="TDto">The dto</typeparam>
+    /// <param name="builder">The builder</param>
+    /// <param name="version">The version</param>
+    /// <returns>The builder</returns>
+    public static RouteGroupBuilder Create<TId, TEntity, TDto>(this RouteGroupBuilder builder, int version)
+        where TId : IEquatable<TId>
+        where TEntity : BaseEntity<TId, TEntity, TDto>
+        where TDto : IEntityDto<TId, TEntity, TDto>, ICreateEntityDto<TId, TEntity, TDto>
+    {
+        return Create<TId, TEntity, TDto, TDto>(builder, version);
     }
 
     /// <summary>

@@ -6,6 +6,11 @@
 
     <Version>0.2.1</Version>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="nupkgs\**" />
+    <EmbeddedResource Remove="nupkgs\**" />
+    <None Remove="nupkgs\**" />
+  </ItemGroup>
 
 
   <ItemGroup>

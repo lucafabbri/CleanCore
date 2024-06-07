@@ -1,4 +1,5 @@
 using CleanCore.Domain.Common;
+using CleanCore.Examples.CounterWebApp.DTO;
 using ErrorOr;
 
 namespace CleanCore.Examples.CounterWebApp.Domain;
@@ -6,8 +7,8 @@ namespace CleanCore.Examples.CounterWebApp.Domain;
 /// <summary>
 /// The counter class
 /// </summary>
-/// <seealso cref="BaseIntEntityAndDto{Counter}"/>
-public class Counter : BaseIntEntityAndDto<Counter>
+/// <seealso cref="BaseIntEntity{Counter}"/>
+public class Counter : BaseIntEntity<Counter, CounterDto>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="Counter"/> class
@@ -36,6 +37,20 @@ public class Counter : BaseIntEntityAndDto<Counter>
     /// Gets or sets the value of the value
     /// </summary>
     public int Value { get; set; }
+
+    public override CounterDto ToDto()
+    {
+        return new CounterDto { 
+            Id = Id,
+            Value = Value,
+            CreatedBy = CreatedBy,
+            CreatedAt = CreatedAt,
+            DeletedAt = DeletedAt,
+            DeletedBy = DeletedBy,
+            LastModifiedAt = LastModifiedAt,    
+            LastModifiedBy = LastModifiedBy
+        };
+    }
 
     /// <summary>
     /// Validates this instance

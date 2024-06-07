@@ -4,7 +4,7 @@
 /// The entity dto class
 /// </summary>
 /// <seealso cref="IEntityDto{TId, TEntity, TDto}"/>
-public abstract class EntityDto<TId, TEntity, TDto>:IEntityDto<TId, TEntity, TDto>
+public abstract class EntityDto<TId, TEntity, TDto>:IEntityDto<TId, TEntity, TDto>, ICreateEntityDto<TId, TEntity, TDto>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>
     where TDto : IEntityDto<TId, TEntity, TDto>
