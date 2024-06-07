@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.2.3"></a>
+## [0.2.3](https://www.github.com/lucafabbri/Clean/releases/tag/v0.2.3) (2024-06-07)
+
+### Bug Fixes
+
+* example with counter dto ([b2ad474](https://www.github.com/lucafabbri/Clean/commit/b2ad474628a79b8325d08b527f02bfe7b37d398d))
+* string enum in post ([fdc2450](https://www.github.com/lucafabbri/Clean/commit/fdc24500127f86d22e801e1e32bc35803d15d2b6))
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://www.github.com/lucafabbri/Clean/releases/tag/v0.2.2) (2024-06-07)
 
