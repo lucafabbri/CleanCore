@@ -1,5 +1,6 @@
 using CleanCore.Application.Handlers;
 using CleanCore.Examples.CounterWebApp.Domain;
+using CleanCore.Examples.CounterWebApp.DTO;
 using CleanCore.Examples.CounterWebApp.Infrastructure;
 
 namespace CleanCore.Examples.CounterWebApp.Application.Handlers;
@@ -8,7 +9,7 @@ namespace CleanCore.Examples.CounterWebApp.Application.Handlers;
 /// The create counter handler class
 /// </summary>
 /// <seealso cref="CreateEntityCommandHandler{Int, Counter, Counter}"/>
-public class CreateCounterHandler : CreateEntityCommandHandler<int, Counter, Counter>
+public class CreateCounterHandler : CreateEntityCommandHandler<int, Counter, CounterDto>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="CreateCounterHandler"/> class
@@ -23,7 +24,7 @@ public class CreateCounterHandler : CreateEntityCommandHandler<int, Counter, Cou
 /// The modify counter handler class
 /// </summary>
 /// <seealso cref="ModifyEntityCommandHandler{Int, Counter, Counter}"/>
-public class ModifyCounterHandler : ModifyEntityCommandHandler<int, Counter, Counter>
+public class ModifyCounterHandler : ModifyEntityCommandHandler<int, Counter, CounterDto>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ModifyCounterHandler"/> class
@@ -38,7 +39,7 @@ public class ModifyCounterHandler : ModifyEntityCommandHandler<int, Counter, Cou
 /// The upsert counter handler class
 /// </summary>
 /// <seealso cref="UpsertEntityCommandHandler{Int, Counter, Counter}"/>
-public class UpsertCounterHandler : UpsertEntityCommandHandler<int, Counter, Counter>
+public class UpsertCounterHandler : UpsertEntityCommandHandler<int, Counter, CounterDto>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="UpsertCounterHandler"/> class
@@ -53,7 +54,7 @@ public class UpsertCounterHandler : UpsertEntityCommandHandler<int, Counter, Cou
 /// The upsert many counter handler class
 /// </summary>
 /// <seealso cref="UpsertManyEntityCommandHandler{Int, Counter, Counter}"/>
-public class UpsertManyCounterHandler : UpsertManyEntityCommandHandler<int, Counter, Counter>
+public class UpsertManyCounterHandler : UpsertManyEntityCommandHandler<int, Counter, CounterDto>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="UpsertManyCounterHandler"/> class
@@ -68,7 +69,7 @@ public class UpsertManyCounterHandler : UpsertManyEntityCommandHandler<int, Coun
 /// The delete counter handler class
 /// </summary>
 /// <seealso cref="DeleteEntityCommandHandler{Int, Counter, Counter}"/>
-public class DeleteCounterHandler : DeleteEntityCommandHandler<int, Counter, Counter>
+public class DeleteCounterHandler : DeleteEntityCommandHandler<int, Counter, CounterDto>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="DeleteCounterHandler"/> class
@@ -83,7 +84,7 @@ public class DeleteCounterHandler : DeleteEntityCommandHandler<int, Counter, Cou
 /// The delete many counter handler class
 /// </summary>
 /// <seealso cref="DeleteManyEntityCommandHandler{Int, Counter, Counter}"/>
-public class DeleteManyCounterHandler : DeleteManyEntityCommandHandler<int, Counter, Counter>
+public class DeleteManyCounterHandler : DeleteManyEntityCommandHandler<int, Counter, CounterDto>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="DeleteManyCounterHandler"/> class
@@ -98,7 +99,7 @@ public class DeleteManyCounterHandler : DeleteManyEntityCommandHandler<int, Coun
 /// The find counter handler class
 /// </summary>
 /// <seealso cref="FindEntityCommandHandler{Int, Counter, Counter}"/>
-public class FindCounterHandler : FindEntityCommandHandler<int, Counter, Counter>
+public class FindCounterHandler : FindEntityCommandHandler<int, Counter, CounterDto>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="FindCounterHandler"/> class
@@ -113,7 +114,7 @@ public class FindCounterHandler : FindEntityCommandHandler<int, Counter, Counter
 /// The find all counter handler class
 /// </summary>
 /// <seealso cref="FindAllEntityCommandHandler{Int, Counter, Counter}"/>
-public class FindAllCounterHandler : FindAllEntityCommandHandler<int, Counter, Counter>
+public class FindAllCounterHandler : FindAllEntityCommandHandler<int, Counter, CounterDto>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="FindAllCounterHandler"/> class

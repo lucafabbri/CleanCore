@@ -12,7 +12,7 @@ var app = CleanApplication.Create(args,
                                         .Effective(DateTimeOffset.Now.AddDays(60)));
 app
     .MapEntity<int, Counter, CounterDto>(versions: [1, 2])
-    .All<int, Counter>(version: 1)
-    .All<int, Counter>(version: 2);
+    .All<int, Counter, CounterDto>(version: 1)
+    .All<int, Counter, CounterDto>(version: 2);
 
 app.Run();
