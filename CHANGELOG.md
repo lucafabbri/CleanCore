@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.2.2"></a>
+## [0.2.2](https://www.github.com/lucafabbri/Clean/releases/tag/v0.2.2) (2024-06-07)
+
+### Bug Fixes
+
+* entity dto ([b4b87a4](https://www.github.com/lucafabbri/Clean/commit/b4b87a45af45bdb17f5d3e5efbecc1b39f6a1cae))
+* entity dto with ICreateDto embedded ([36d2f25](https://www.github.com/lucafabbri/Clean/commit/36d2f25ca8e1c0a0d767ea06b158c4478385a0fb))
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://www.github.com/lucafabbri/Clean/releases/tag/v0.2.1) (2024-06-07)
 
