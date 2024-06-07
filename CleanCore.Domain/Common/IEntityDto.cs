@@ -11,31 +11,31 @@ public interface IEntityDto<TId, TEntity, TDto>
     /// <summary>
     /// Gets the value of the id
     /// </summary>
-    TId? Id { get; set; }
+    TId? Id { get; }
     /// <summary>
     /// Gets the value of the created at
     /// </summary>
-    DateTimeOffset CreatedAt { get; set; }
+    DateTimeOffset CreatedAt { get; }
     /// <summary>
     /// Gets the value of the created by
     /// </summary>
-    string? CreatedBy { get; set; }
+    string? CreatedBy { get; }
     /// <summary>
     /// Gets the value of the last modified at
     /// </summary>
-    DateTimeOffset LastModifiedAt { get; set; }
+    DateTimeOffset LastModifiedAt { get; }
     /// <summary>
     /// Gets the value of the last modified by
     /// </summary>
-    string? LastModifiedBy { get; set; }
+    string? LastModifiedBy { get; }
     /// <summary>
     /// Gets the value of the deleted at
     /// </summary>
-    DateTimeOffset? DeletedAt { get; set; }
+    DateTimeOffset? DeletedAt { get; }
     /// <summary>
     /// Gets the value of the deleted by
     /// </summary>
-    string? DeletedBy { get; set; }
+    string? DeletedBy { get; }
     /// <summary>
     /// Returns the entity
     /// </summary>

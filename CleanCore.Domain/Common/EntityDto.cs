@@ -12,31 +12,31 @@ public abstract class EntityDto<TId, TEntity, TDto>:IEntityDto<TId, TEntity, TDt
     /// <summary>
     /// Gets the value of the id
     /// </summary>
-    public TId? Id { get; }
+    public TId? Id { get; set; }
     /// <summary>
     /// Gets the value of the created at
     /// </summary>
-    public DateTimeOffset CreatedAt { get; }
+    public DateTimeOffset CreatedAt { get; set; }
     /// <summary>
     /// Gets the value of the created by
     /// </summary>
-    public string? CreatedBy { get; }
+    public string? CreatedBy { get; set; }
     /// <summary>
     /// Gets the value of the last modified at
     /// </summary>
-    public DateTimeOffset LastModifiedAt { get; }
+    public DateTimeOffset LastModifiedAt { get; set; }
     /// <summary>
     /// Gets the value of the last modified by
     /// </summary>
-    public string? LastModifiedBy { get; }
+    public string? LastModifiedBy { get; set; }
     /// <summary>
     /// Gets the value of the deleted at
     /// </summary>
-    public DateTimeOffset? DeletedAt { get; }
+    public DateTimeOffset? DeletedAt { get; set; }
     /// <summary>
     /// Gets the value of the deleted by
     /// </summary>
-    public string? DeletedBy { get; }
+    public string? DeletedBy { get; set; }
     /// <summary>
     /// Returns the entity
     /// </summary>
