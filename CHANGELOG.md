@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.2.1"></a>
+## [0.2.1](https://www.github.com/lucafabbri/Clean/releases/tag/v0.2.1) (2024-06-07)
+
+### Bug Fixes
+
+* entity dto public property setters ([f301b67](https://www.github.com/lucafabbri/Clean/commit/f301b67d6a2219725df1ce1fb16c692e7f317556))
+
 <a name="0.2.0"></a>
 ## [0.2.0](https://www.github.com/lucafabbri/Clean/releases/tag/v0.2.0) (2024-06-07)
 
