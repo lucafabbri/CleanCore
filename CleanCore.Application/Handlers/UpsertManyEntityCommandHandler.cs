@@ -10,7 +10,7 @@ namespace CleanCore.Application.Handlers;
 /// <summary>
 /// The upsert many entity command handler class
 /// </summary>
-/// <seealso cref="IRequestHandler{UpsertManyEntityCommand{TId, TEntity, TDto}, ErrorOr{IEnumerable{TDto}}}"/>
+/// <seealso cref="IRequestHandler{UpsertManyEntityCommand, ErrorOr}"/>
 public abstract class UpsertManyEntityCommandHandler<TId, TEntity, TDto> : IRequestHandler<UpsertManyEntityCommand<TId, TEntity, TDto>, ErrorOr<IEnumerable<TDto>>>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>

@@ -10,7 +10,7 @@ namespace CleanCore.Application.Handlers;
 /// <summary>
 /// The create entity command handler class
 /// </summary>
-/// <seealso cref="IRequestHandler{CreateEntityCommand{TId, TEntity, TDto}, ErrorOr{TDto}}"/>
+/// <seealso cref="IRequestHandler{CreateEntityCommand, ErrorOr}"/>
 public abstract class CreateEntityCommandHandler<TId, TEntity, TDto> : IRequestHandler<CreateEntityCommand<TId, TEntity, TDto>, ErrorOr<TDto>>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>

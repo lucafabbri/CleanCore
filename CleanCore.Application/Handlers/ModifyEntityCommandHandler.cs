@@ -10,7 +10,7 @@ namespace CleanCore.Application.Handlers;
 /// <summary>
 /// The modify entity command handler class
 /// </summary>
-/// <seealso cref="IRequestHandler{ModifyEntityCommand{TId, TEntity, TDto}, ErrorOr{TDto}}"/>
+/// <seealso cref="IRequestHandler{ModifyEntityCommand, ErrorOr}"/>
 public abstract class ModifyEntityCommandHandler<TId, TEntity, TDto> : IRequestHandler<ModifyEntityCommand<TId, TEntity, TDto>, ErrorOr<TDto>>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>

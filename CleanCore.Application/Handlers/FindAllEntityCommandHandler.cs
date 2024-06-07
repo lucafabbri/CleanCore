@@ -8,7 +8,7 @@ namespace CleanCore.Application.Handlers;
 /// <summary>
 /// The find all entity command handler class
 /// </summary>
-/// <seealso cref="IRequestHandler{FindAllEntityCommand{TId, TEntity, TDto}, IEnumerable{TDto}}"/>
+/// <seealso cref="IRequestHandler{FindAllEntityCommand, IEnumerable}"/>
 public abstract class FindAllEntityCommandHandler<TId, TEntity, TDto> : IRequestHandler<FindAllEntityCommand<TId, TEntity, TDto>, IEnumerable<TDto>>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>

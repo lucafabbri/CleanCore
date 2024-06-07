@@ -78,6 +78,7 @@ public static class EntityEndpointsExtension
     /// </summary>
     /// <typeparam name="TEntity">The entity</typeparam>
     /// <param name="builder">The builder</param>
+    /// <param name="version">The version</param>
     /// <returns>The route group builder</returns>
     public static RouteGroupBuilder All<TEntity>(this RouteGroupBuilder builder, int version)
         where TEntity : BaseIntEntityAndDto<TEntity>
@@ -99,6 +100,7 @@ public static class EntityEndpointsExtension
     /// <typeparam name="TId">The id</typeparam>
     /// <typeparam name="TEntity">The entity</typeparam>
     /// <param name="builder">The builder</param>
+    /// <param name="version">The version</param>
     /// <returns>The route group builder</returns>
     public static RouteGroupBuilder All<TId, TEntity>(this RouteGroupBuilder builder, int version)
         where TId : IEquatable<TId>
@@ -123,6 +125,7 @@ public static class EntityEndpointsExtension
     /// <typeparam name="TDto">The dto</typeparam>
     /// <typeparam name="TCreateDto">The create dto</typeparam>
     /// <param name="builder">The builder</param>
+    /// <param name="version">The version</param>
     /// <returns>The route group builder</returns>
     public static RouteGroupBuilder All<TId, TEntity, TDto, TCreateDto>(this RouteGroupBuilder builder, int version)
         where TId : IEquatable<TId>
@@ -146,6 +149,7 @@ public static class EntityEndpointsExtension
     /// </summary>
     /// <typeparam name="TEntity">The entity</typeparam>
     /// <param name="builder">The builder</param>
+    /// <param name="version">The version</param>
     /// <returns>The route group builder</returns>
     public static RouteGroupBuilder FindAll<TEntity>(this RouteGroupBuilder builder, int version)
         where TEntity : BaseIntEntityAndDto<TEntity>

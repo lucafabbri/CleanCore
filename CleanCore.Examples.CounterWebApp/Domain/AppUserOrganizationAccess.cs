@@ -16,6 +16,6 @@ namespace CleanCore.Examples.CounterWebApp.Domain
         /// <summary>
         /// Gets or sets the value of the user
         /// </summary>
-        public IUser User { get; set; }
+        public IUser User { get; set; } = null!;
     }
 }

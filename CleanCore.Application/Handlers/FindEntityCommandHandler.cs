@@ -9,7 +9,7 @@ namespace CleanCore.Application.Handlers;
 /// <summary>
 /// The find entity command handler class
 /// </summary>
-/// <seealso cref="IRequestHandler{FindEntityCommand{TId, TEntity, TDto}, ErrorOr{TDto}}"/>
+/// <seealso cref="IRequestHandler{FindEntityCommand, ErrorOr}"/>
 public abstract class FindEntityCommandHandler<TId, TEntity, TDto> : IRequestHandler<FindEntityCommand<TId, TEntity, TDto>, ErrorOr<TDto>>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>

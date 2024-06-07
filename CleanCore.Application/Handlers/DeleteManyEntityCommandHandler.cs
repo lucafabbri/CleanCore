@@ -10,7 +10,7 @@ namespace CleanCore.Application.Handlers;
 /// <summary>
 /// The delete many entity command handler class
 /// </summary>
-/// <seealso cref="IRequestHandler{DeleteManyEntityCommand{TId, TEntity, TDto}, ErrorOr{Deleted}}"/>
+/// <seealso cref="IRequestHandler{DeleteManyEntityCommand, ErrorOr}"/>
 public abstract class DeleteManyEntityCommandHandler<TId, TEntity, TDto> : IRequestHandler<DeleteManyEntityCommand<TId, TEntity, TDto>, ErrorOr<Deleted>>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>

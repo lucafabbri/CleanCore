@@ -57,7 +57,7 @@ public class OrganizationEntitySaveChangesInterceptor<TOrganizationId> : SaveCha
     /// Updates the entities using the specified context
     /// </summary>
     /// <param name="context">The context</param>
-    public async void UpdateEntities(DbContext? context)
+    public void UpdateEntities(DbContext? context)
     {
         if (context == null) return;
 
