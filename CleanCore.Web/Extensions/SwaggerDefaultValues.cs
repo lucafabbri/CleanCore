@@ -1,8 +1,10 @@
-﻿using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Text.Json;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.OpenApi.Any;
 
 namespace CleanCore.Web.Extensions
 {
@@ -16,6 +18,30 @@ namespace CleanCore.Web.Extensions
         /// <inheritdoc />
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
+            var filterPipeline = context.ApiDescription.ActionDescriptor.FilterDescriptors;
+            var isAuthorized = filterPipeline.Select(filterInfo => filterInfo.Filter).Any(filter => filter is AuthorizeFilter);
+            var allowAnonymous = filterPipeline.Select(filterInfo => filterInfo.Filter).Any(filter => filter is IAllowAnonymousFilter);
+
+            if (isAuthorized && !allowAnonymous)
+            {
+                if (operation.Parameters == null)
+                    operation.Parameters = new List<OpenApiParameter>();
+
+                operation.Parameters.Add(new OpenApiParameter
+                {
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Description = "access token",
+                    Required = true,
+                    Schema = new OpenApiSchema
+                    {
+                        Type = "string",
+                        Default = new OpenApiString("Bearer ")
+                    }
+                });
+            }
+
+
             var apiDescription = context.ApiDescription;
 
             operation.Deprecated |= apiDescription.IsDeprecated();
@@ -61,6 +87,20 @@ namespace CleanCore.Web.Extensions
 
                 parameter.Required |= description.IsRequired;
             }
+
+
+            operation.Parameters.Add(new OpenApiParameter
+            {
+                Name = "x-api-version",
+                In = ParameterLocation.Header,
+                Description = "API version",
+                Required = false,
+                Schema = new OpenApiSchema
+                {
+                    Type = "string",
+                    Default = new OpenApiString(apiDescription.GetApiVersion()?.MajorVersion?.ToString() ?? "1")
+                }
+            });
         }
     }
 }

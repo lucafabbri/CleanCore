@@ -1,4 +1,4 @@
-﻿using Asp.Versioning.ApiExplorer;
+using Asp.Versioning.ApiExplorer;
 using Asp.Versioning;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -20,7 +20,13 @@ namespace CleanCore.Web.Extensions
     /// <see cref="IApiVersionDescriptionProvider"/> service has been resolved from the service container.</remarks>
     public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     {
+        /// <summary>
+        /// The provider
+        /// </summary>
         private readonly IApiVersionDescriptionProvider provider;
+        /// <summary>
+        /// The configuration
+        /// </summary>
         private readonly IConfiguration configuration;
 
         /// <summary>
@@ -45,6 +51,11 @@ namespace CleanCore.Web.Extensions
             }
         }
 
+        /// <summary>
+        /// Creates the info for api version using the specified description
+        /// </summary>
+        /// <param name="description">The description</param>
+        /// <returns>The info</returns>
         private OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
         {
             var text = new StringBuilder(configuration.GetSection("Swagger")["Description"]);

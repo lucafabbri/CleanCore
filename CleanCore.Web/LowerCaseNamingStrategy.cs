@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace CleanCore.Web
 {
+    /// <summary>
+    /// The lower case naming strategy class
+    /// </summary>
+    /// <seealso cref="NamingStrategy"/>
     public class LowerCaseNamingStrategy : NamingStrategy
     {
         /// <summary>

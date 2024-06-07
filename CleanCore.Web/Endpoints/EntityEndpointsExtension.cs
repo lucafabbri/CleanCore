@@ -387,7 +387,8 @@ public static class EntityEndpointsExtension
             .Produces<Error>(401)
             .Produces<Error>(403)
             .Produces<Error>(404)
-            .Produces<Error>(422).MapToApiVersion(version);
+            .Produces<Error>(422)
+            .MapToApiVersion(version);
 
         return builder;
     }
