@@ -1,31 +1,17 @@
+using Asp.Versioning;
 using CleanCore.Examples.CounterWebApp.Domain;
 using CleanCore.Examples.CounterWebApp.Infrastructure;
 using CleanCore.Web.Endpoints;
+using CleanCore.Web;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddCounters();
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.MapEntity<Counter>().All<Counter>();
+var app = CleanApplication.Create(args, 
+    services: (services) => services.AddCounters(), 
+    apiVersioning: (options) =>
+                        options.Policies.Sunset(1)
+                                        .Effective(DateTimeOffset.Now.AddDays(60)));
+app
+    .MapEntity<Counter>(versions: [1, 2])
+    .All<Counter>(version: 1)
+    .All<Counter>(version: 2);
 
 app.Run();
