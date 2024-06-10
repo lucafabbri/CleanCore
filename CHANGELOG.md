@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.2.4"></a>
+## [0.2.4](https://www.github.com/lucafabbri/Clean/releases/tag/v0.2.4) (2024-06-10)
+
+### Bug Fixes
+
+* removes id from upsert many ([85fea36](https://www.github.com/lucafabbri/Clean/commit/85fea365cd53c35c71d84774976327e401399969))
+
 <a name="0.2.3"></a>
 ## [0.2.3](https://www.github.com/lucafabbri/Clean/releases/tag/v0.2.3) (2024-06-07)
 
