@@ -581,7 +581,7 @@ public static class EntityEndpointsExtension
         where TEntity : BaseEntity<TId, TEntity, TDto>
         where TDto : IEntityDto<TId, TEntity, TDto>
     {
-        builder.MapPatch("/many", async ([FromServices] ISender sender, TId id, [FromBody] IEnumerable<TDto> dtos) =>
+        builder.MapPatch("/many", async ([FromServices] ISender sender, [FromBody] IEnumerable<TDto> dtos) =>
         {
             return (await sender.Send(new UpsertManyEntityCommand<TId, TEntity, TDto>(dtos))).ToErrorOrOk();
         })
