@@ -93,11 +93,18 @@ public abstract class DeleteElasticEntityCommandHandler<TId, TEntity, TDto> : Ba
             .Then(entity => entity!.AddDomainEvent(new EntityDeletedEvent<TId, TEntity, TDto>(entity)))
             .ThenAsync(async entity =>
             {
-                return (await DeleteAsync(entity.Id!)).Then(_ =>
+                try
                 {
-                    entity.Deleted();
-                    return entity;
-                });
+                    return (await DeleteAsync(entity.Id!)).Then(_ =>
+                    {
+                        entity.Deleted();
+                        return entity;
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return Error.Conflict(ex.Message);
+                }
             })
             .Then(entity => entity.ToDto());
     }

@@ -92,6 +92,13 @@ public abstract class DeleteManyElasticEntityCommandHandler<TId, TEntity, TDto> 
     /// <returns>A task containing an error or of deleted</returns>
     public virtual async Task<ErrorOr<Deleted>> Handle(DeleteManyEntityCommand<TId, TEntity, TDto> request, CancellationToken cancellationToken)
     {
-        return await DeleteManyAsync(request.Ids);
+        try
+        {
+            return await DeleteManyAsync(request.Ids);
+        }
+        catch (Exception ex)
+        {
+            return Error.Conflict(ex.Message);
+        }
     }
 }

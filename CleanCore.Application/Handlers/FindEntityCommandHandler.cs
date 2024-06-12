@@ -73,6 +73,13 @@ public abstract class FindElasticEntityCommandHandler<TId, TEntity, TDto> : Base
     /// <returns>A task containing an error or of t dto</returns>
     public virtual async Task<ErrorOr<TDto>> Handle(FindEntityCommand<TId, TEntity, TDto> request, CancellationToken cancellationToken)
     {
-        return await GetAsync(request.Id).Then(entity => entity.ToDto());
+        try
+        {
+            return await GetAsync(request.Id).Then(entity => entity.ToDto());
+        }
+        catch (Exception ex)
+        {
+            return Error.Conflict(ex.Message);
+        }
     }
 }

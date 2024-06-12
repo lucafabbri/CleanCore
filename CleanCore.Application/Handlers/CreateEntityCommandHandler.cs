@@ -92,7 +92,14 @@ public class CreateElasticEntityCommandHandler<TId, TEntity, TDto> : BaseElastic
             .Then(entity => entity.AddDomainEvent(new EntityCreationEvent<TId, TEntity, TDto>(entity)))
             .ThenAsync(async entity =>
             {
+                try
+                {
                 return await IndexAsync(entity);
+                }
+                catch (Exception ex)
+                {
+                    return Error.Conflict(ex.Message);
+                }
             })
             .Then(entity => entity.ToDto());
     }

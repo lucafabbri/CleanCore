@@ -95,6 +95,17 @@ public abstract class ModifyElasticEntityCommandHandler<TId, TEntity, TDto> : Ba
     public virtual async Task<ErrorOr<TDto>> Handle(ModifyEntityCommand<TId, TEntity, TDto> request, CancellationToken cancellationToken) => await request.Dto.ToEntity()
             .ToErrorOr()
             .Then(entity => entity.AddDomainEvent(new EntityModifiedEvent<TId, TEntity, TDto>(entity)))
-            .ThenAsync(UpdateAsync)
+            .ThenAsync(async entity =>
+            {
+                try
+                {
+                    return await UpdateAsync(entity);
+                }
+                catch (Exception ex)
+                {
+                    return Error.Conflict(ex.Message);
+                }
+            }
+            )
             .Then(entity => entity.ToDto());
 }

@@ -116,10 +116,17 @@ public abstract class UpsertElasticEntityCommandHandler<TId, TEntity, TDto> : Ba
             ))
             .ThenAsync(async entity =>
             {
-                return await (await GetAsync(entity.Id!))
-                .MatchAsync(
-                    async oldEntity => await oldEntity!.Update(entity).ThenAsync(UpdateAsync),
-                    async _ => await IndexAsync(entity));
+                try
+                {
+                    return await (await GetAsync(entity.Id!))
+                    .MatchAsync(
+                        async oldEntity => await oldEntity!.Update(entity).ThenAsync(UpdateAsync),
+                        async _ => await IndexAsync(entity));
+                }
+                catch (Exception ex)
+                {
+                    return Error.Conflict(ex.Message);
+                }
             })
             .Then(entity => entity.ToDto());
     }
