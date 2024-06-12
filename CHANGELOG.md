@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.3.1"></a>
+## [0.3.1](https://www.github.com/lucafabbri/Clean/releases/tag/v0.3.1) (2024-06-12)
+
+### Bug Fixes
+
+* adds upsert many elastic command handler ([3d4ac0d](https://www.github.com/lucafabbri/Clean/commit/3d4ac0d250cc13fdd5442ac4db3d7d4db8b983b2))
+* adds upsert many elastic command handler ([8187195](https://www.github.com/lucafabbri/Clean/commit/81871953aedb730ae2b1d2e5beb1a50f7fcf867e))
+
 <a name="0.3.0"></a>
 ## [0.3.0](https://www.github.com/lucafabbri/Clean/releases/tag/v0.3.0) (2024-06-12)
 
