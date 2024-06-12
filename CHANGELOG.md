@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.3.0"></a>
+## [0.3.0](https://www.github.com/lucafabbri/Clean/releases/tag/v0.3.0) (2024-06-12)
+
+### Features
+
+* Support For ElasticSearch ([c70acf9](https://www.github.com/lucafabbri/Clean/commit/c70acf91129933822280ddd45a6495405a9d652a))
+
 <a name="0.2.4"></a>
 ## [0.2.4](https://www.github.com/lucafabbri/Clean/releases/tag/v0.2.4) (2024-06-10)
 
