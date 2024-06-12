@@ -84,7 +84,7 @@ public abstract class UpsertManyEntityCommandHandler<TId, TEntity, TDto> : IRequ
 /// The upsert many elastic entity command handler class
 /// </summary>
 /// <seealso cref="BaseElasticCommandHandler{TId, TEntity, TDto}"/>
-/// <seealso cref="IRequestHandler{UpsertManyEntityCommand{TId, TEntity, TDto}, ErrorOr{IEnumerable{TDto}}}"/>
+/// <seealso cref="IRequestHandler{UpsertManyEntityCommand, ErrorOr}"/>
 public abstract class UpsertManyElasticEntityCommandHandler<TId, TEntity, TDto> : BaseElasticCommandHandler<TId, TEntity, TDto>, IRequestHandler<UpsertManyEntityCommand<TId, TEntity, TDto>, ErrorOr<IEnumerable<TDto>>>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>
