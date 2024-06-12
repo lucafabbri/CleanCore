@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CleanCore.Application\CleanCore.Application.csproj" />
     <ProjectReference Include="..\CleanCore.Domain\CleanCore.Domain.csproj" />
+    <ProjectReference Include="..\CleanCore.Examples.Counter.Common\CleanCore.Examples.Counter.Common.csproj" />
     <ProjectReference Include="..\CleanCore.Infrastructure\CleanCore.Infrastructure.csproj" />
     <ProjectReference Include="..\CleanCore.Web\CleanCore.Web.csproj" />
   </ItemGroup>

@@ -1,5 +1,5 @@
 using CleanCore.Domain.Common;
-using CleanCore.Infrastructure.Services;
+using CleanCore.Application.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using CleanCore.Core.Extensions;
@@ -40,7 +40,7 @@ public class BaseEntitySaveChangesInterceptor : SaveChangesInterceptor
     /// <returns>An interception result of int</returns>
     public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
     {
-        UpdateEntities(eventData.Context); 
+        UpdateEntities(eventData.Context);
 
         return base.SavingChanges(eventData, result);
     }

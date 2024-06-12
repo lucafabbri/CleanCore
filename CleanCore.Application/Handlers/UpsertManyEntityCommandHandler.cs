@@ -51,7 +51,7 @@ public abstract class UpsertManyEntityCommandHandler<TId, TEntity, TDto> : IRequ
                 }
                 return entities;
             })
-            .ThenAsync<IEnumerable<TEntity>>(async entities =>
+            .ThenAsync(async entities =>
             {
                 try
                 {
