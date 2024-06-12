@@ -1,10 +1,8 @@
-using Asp.Versioning;
 using CleanCore.Examples.CounterWebApp.Domain;
 using CleanCore.Examples.CounterWebApp.Infrastructure;
 using CleanCore.Web.Endpoints;
 using CleanCore.Web;
 using CleanCore.Examples.CounterWebApp.DTO;
-using System;
 using CleanCore.Examples.CounterElasticWebApp.Application.Handlers;
 
 var app = CleanApplication.Create(args,

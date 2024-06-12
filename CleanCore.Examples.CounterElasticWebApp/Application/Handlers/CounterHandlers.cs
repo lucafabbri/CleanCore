@@ -2,7 +2,6 @@ using CleanCore.Application.Handlers;
 using CleanCore.Application.Services;
 using CleanCore.Examples.CounterWebApp.Domain;
 using CleanCore.Examples.CounterWebApp.DTO;
-using CleanCore.Examples.CounterWebApp.Infrastructure;
 
 namespace CleanCore.Examples.CounterElasticWebApp.Application.Handlers;
 
