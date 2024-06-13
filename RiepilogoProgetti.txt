@@ -1,0 +1,8 @@
+Progetti nella soluzione:
+Progetto: CleanCore.Domain\CleanCore.Domain.csproj ha un README in C:\github\Clean\CleanCore.Domain\README.md
+Progetto: CleanCore.Application\CleanCore.Application.csproj ha un README in C:\github\Clean\CleanCore.Application\README.md
+Progetto: CleanCore.Infrastructure\CleanCore.Infrastructure.csproj ha un README in C:\github\Clean\CleanCore.Infrastructure\README.md
+Progetto: CleanCore.Web\CleanCore.Web.csproj ha un README in C:\github\Clean\CleanCore.Web\README.md
+Progetto: CleanCore.Examples.CounterWebApp\CleanCore.Examples.CounterWebApp.csproj NON ha un README
+Progetto: CleanCore.Examples.CounterElasticWebApp\CleanCore.Examples.CounterElasticWebApp.csproj ha un README in C:\github\Clean\CleanCore.Examples.CounterElasticWebApp\README.md
+Progetto: CleanCore.Examples.Counter.Common\CleanCore.Examples.Counter.Common.csproj NON ha un README

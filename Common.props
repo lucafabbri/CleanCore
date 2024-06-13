@@ -14,9 +14,9 @@
         <PackageProjectUrl>https://github.com/lucafabbri/Clean</PackageProjectUrl>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <Nullable>enable</Nullable>
-        <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <ImplicitUsings>enable</ImplicitUsings>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DocumentationMarkdown>$(MSBuildProjectDirectory)\README.md</DocumentationMarkdown>
     </PropertyGroup>
 
 </Project>
