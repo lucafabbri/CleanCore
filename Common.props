@@ -4,19 +4,24 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageOutputPath>nupkgs</PackageOutputPath>
         <LangVersion>latestmajor</LangVersion>
-        <RepositoryUrl>https://github.com/lucafabbri/Clean</RepositoryUrl>
+        <RepositoryUrl>https://github.com/lucafabbri/CleanCore</RepositoryUrl>
         <Authors>Luca Fabbri</Authors>
         <RepositoryType>git</RepositoryType>
         <Copyright>2024 Luca Fabbri</Copyright>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
         <PackageTags>Clean</PackageTags>
-        <PackageProjectUrl>https://github.com/lucafabbri/Clean</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/lucafabbri/CleanCore</PackageProjectUrl>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <DocumentationMarkdown>$(MSBuildProjectDirectory)\README.md</DocumentationMarkdown>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <PackageProjectUrl>https://github.com/lucafabbri/CleanCore/blob/main/LICENSE.txt</PackageProjectUrl>
     </PropertyGroup>
+    <ItemGroup>
+      <None Include="LICENSE.md" Pack="true" PackagePath=""/>
+    </ItemGroup>
 
 </Project>
