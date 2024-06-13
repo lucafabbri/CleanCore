@@ -18,10 +18,12 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <DocumentationMarkdown>$(MSBuildProjectDirectory)\README.md</DocumentationMarkdown>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageProjectUrl>https://github.com/lucafabbri/CleanCore/blob/main/LICENSE.txt</PackageProjectUrl>
     </PropertyGroup>
     <ItemGroup>
       <None Include="..\LICENSE.md" Pack="true" PackagePath=""/>
+      <None Include="..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>
