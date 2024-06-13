@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.4.2"></a>
+## [0.4.2](https://www.github.com/lucafabbri/Clean/releases/tag/v0.4.2) (2024-06-14)
+
+### Bug Fixes
+
+* license link in nuget refecerence update to relative path ([bdb8bd5](https://www.github.com/lucafabbri/Clean/commit/bdb8bd5fc39e29f11eab26de95f1fbb1853c4e58))
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://www.github.com/lucafabbri/Clean/releases/tag/v0.4.1) (2024-06-14)
 
