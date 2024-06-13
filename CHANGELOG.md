@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://www.github.com/lucafabbri/Clean/releases/tag/v0.4.1) (2024-06-14)
+
+### Bug Fixes
+
+* license link in package nuget ([6ab59e4](https://www.github.com/lucafabbri/Clean/commit/6ab59e42e023ee710d956644f0fd41827789316a))
+
 <a name="0.4.0"></a>
 ## [0.4.0](https://www.github.com/lucafabbri/Clean/releases/tag/v0.4.0) (2024-06-14)
 
