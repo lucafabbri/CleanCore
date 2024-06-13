@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.4.3"></a>
+## [0.4.3](https://www.github.com/lucafabbri/Clean/releases/tag/v0.4.3) (2024-06-14)
+
+### Bug Fixes
+
+* adds readme to nuget package ([99e311f](https://www.github.com/lucafabbri/Clean/commit/99e311f4f94eab24b9583ad5a092e686ecdc72a1))
+
 <a name="0.4.2"></a>
 ## [0.4.2](https://www.github.com/lucafabbri/Clean/releases/tag/v0.4.2) (2024-06-14)
 
