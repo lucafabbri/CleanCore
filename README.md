@@ -2,6 +2,10 @@
 
 Welcome to CleanCore, a robust framework designed to empower developers to implement Clean Architecture in C# applications, with a strong focus on Domain-Driven Design (DDD) and ASP.NET. CleanCore is crafted to streamline the development process, ensuring that your application's architecture remains clean, maintainable, and scalable. Dive into the world of CleanCore, where code meets craftsmanship.
 
+## Documentation
+
+You can reach our AI powered ALpha WIki [here](https://github.com/lucafabbri/CleanCore/wiki) 
+
 ## Projects within CleanCore
 
 Each component of CleanCore plays a pivotal role in providing a comprehensive solution for managing Clean Architecture in C#. Below, you'll find a brief introduction to each project, along with a link to its dedicated README for more detailed information.
