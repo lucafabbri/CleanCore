@@ -4,7 +4,7 @@ Welcome to CleanCore, a robust framework designed to empower developers to imple
 
 ## Documentation
 
-You can reach our AI powered ALpha WIki [here](https://github.com/lucafabbri/CleanCore/wiki) 
+You can reach our AI powered alpha experimental WIki [here](https://github.com/lucafabbri/CleanCore/wiki) 
 
 ## Projects within CleanCore
 
