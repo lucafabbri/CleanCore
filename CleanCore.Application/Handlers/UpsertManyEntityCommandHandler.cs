@@ -59,7 +59,7 @@ public abstract class UpsertManyEntityCommandHandler<TId, TEntity, TDto> : IRequ
                 {
                     foreach (var entity in entities)
                     {
-                        if (entity.Id != null)
+                        if (entity.Id != null && _context.Set<TEntity>().Find(entity.Id) != null)
                         {
                             _context.Set<TEntity>().Update(entity);
                         }
