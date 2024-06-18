@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.4.4"></a>
+## [0.4.4](https://www.github.com/lucafabbri/CleanCore/releases/tag/v0.4.4) (2024-06-18)
+
+### Bug Fixes
+
+* checks if entity exists when id is not null on upsert many ([82731ce](https://www.github.com/lucafabbri/CleanCore/commit/82731ce879cbffa6e3355e8b1b45e59b940ba6f1))
+
 <a name="0.4.3"></a>
 ## [0.4.3](https://www.github.com/lucafabbri/Clean/releases/tag/v0.4.3) (2024-06-14)
 
