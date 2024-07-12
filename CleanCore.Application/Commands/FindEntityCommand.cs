@@ -13,8 +13,15 @@ public class FindEntityCommand<TId, TEntity, TDto> : IRequest<ErrorOr<TDto>>
     where TDto : IEntityDto<TId, TEntity, TDto>
 {
 
+  /// <summary>
+  /// Gets or sets the value of the id
+  /// </summary>
   public TId Id { get; set; }
 
+  /// <summary>
+  /// Initializes a new instance of the <see cref="FindEntityCommand{TId,TEntity,TDto}"/> class
+  /// </summary>
+  /// <param name="id">The id</param>
   public FindEntityCommand(TId id)
   {
     Id = id;
