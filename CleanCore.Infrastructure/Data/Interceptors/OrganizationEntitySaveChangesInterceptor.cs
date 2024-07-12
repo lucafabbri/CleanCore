@@ -9,7 +9,11 @@ namespace CleanCore.Infrastructure.Data.Interceptors;
 /// The organization entity save changes interceptor class
 /// </summary>
 /// <seealso cref="SaveChangesInterceptor"/>
+#if(NET6_0_OR_GREATER)
 public class OrganizationEntitySaveChangesInterceptor<TOrganizationId> : SaveChangesInterceptor
+#else
+public class OrganizationEntitySaveChangesInterceptor<TOrganizationId>
+#endif
     where TOrganizationId : IEquatable<TOrganizationId>
 {
     /// <summary>
@@ -26,6 +30,7 @@ public class OrganizationEntitySaveChangesInterceptor<TOrganizationId> : SaveCha
         _organizationProvider = organizationProvider;
     }
 
+#if (NET6_0_OR_GREATER)
     /// <summary>
     /// Savings the changes using the specified event data
     /// </summary>
@@ -52,12 +57,13 @@ public class OrganizationEntitySaveChangesInterceptor<TOrganizationId> : SaveCha
 
         return base.SavingChangesAsync(eventData, result, cancellationToken);
     }
+#endif
 
-    /// <summary>
-    /// Updates the entities using the specified context
-    /// </summary>
-    /// <param name="context">The context</param>
-    public void UpdateEntities(DbContext? context)
+  /// <summary>
+  /// Updates the entities using the specified context
+  /// </summary>
+  /// <param name="context">The context</param>
+  public void UpdateEntities(DbContext? context)
     {
         if (context == null) return;
 

@@ -9,7 +9,11 @@ namespace CleanCore.Infrastructure.Data.Interceptors;
 /// The dispatch domain events interceptor class
 /// </summary>
 /// <seealso cref="SaveChangesInterceptor"/>
+#if(NET6_0_OR_GREATER)
 public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
+#else 
+public class DispatchDomainEventsInterceptor
+#endif
 {
     /// <summary>
     /// The mediator
@@ -25,6 +29,7 @@ public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
         _mediator = mediator;
     }
 
+#if (NET6_0_OR_GREATER)
     /// <summary>
     /// Savings the changes using the specified event data
     /// </summary>
@@ -52,12 +57,13 @@ public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
 
         return await base.SavingChangesAsync(eventData, result, cancellationToken);
     }
+#endif
 
-    /// <summary>
-    /// Dispatches the domain events using the specified context
-    /// </summary>
-    /// <param name="context">The context</param>
-    public async Task DispatchDomainEvents(DbContext? context)
+  /// <summary>
+  /// Dispatches the domain events using the specified context
+  /// </summary>
+  /// <param name="context">The context</param>
+  public async Task DispatchDomainEvents(DbContext? context)
     {
         if (context == null) return;
 

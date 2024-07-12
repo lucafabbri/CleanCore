@@ -7,7 +7,15 @@ namespace CleanCore.Application.Commands;
 /// <summary>
 /// The upsert entity command
 /// </summary>
-public record UpsertEntityCommand<TId, TEntity, TDto>(TDto Dto) : IRequest<ErrorOr<TDto>>
+public class UpsertEntityCommand<TId, TEntity, TDto> : IRequest<ErrorOr<TDto>>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>
-    where TDto : IEntityDto<TId, TEntity, TDto>;
+    where TDto : IEntityDto<TId, TEntity, TDto>
+{
+  public TDto Dto { get; set; }
+
+  public UpsertEntityCommand(TDto dto)
+  {
+    Dto = dto;
+  }
+}

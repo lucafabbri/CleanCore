@@ -7,7 +7,15 @@ namespace CleanCore.Application.Commands;
 /// <summary>
 /// The delete many entity command
 /// </summary>
-public record DeleteManyEntityCommand<TId, TEntity, TDto>(IEnumerable<TId> Ids) : IRequest<ErrorOr<Deleted>>
+public class DeleteManyEntityCommand<TId, TEntity, TDto> : IRequest<ErrorOr<Deleted>>
     where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId, TEntity, TDto>
-    where TDto : IEntityDto<TId, TEntity, TDto>;
+    where TDto : IEntityDto<TId, TEntity, TDto>
+{
+  public IEnumerable<TId> Ids { get; set; }
+
+  public DeleteManyEntityCommand(IEnumerable<TId> ids)
+  {
+    Ids = ids;
+  }
+}
