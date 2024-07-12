@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.5.0"></a>
+## [0.5.0](https://www.github.com/lucafabbri/CleanCore/releases/tag/v0.5.0) (2024-07-12)
+
+### Features
+
+* add support to netstandard2.0 netstandard2.1 and net 6.0 ([1593db0](https://www.github.com/lucafabbri/CleanCore/commit/1593db02df674231c9b2e5fbaa6747ea2d64f202))
+
 <a name="0.4.4"></a>
 ## [0.4.4](https://www.github.com/lucafabbri/CleanCore/releases/tag/v0.4.4) (2024-06-18)
 
