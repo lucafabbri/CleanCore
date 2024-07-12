@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.5.1"></a>
+## [0.5.1](https://www.github.com/lucafabbri/CleanCore/releases/tag/v0.5.1) (2024-07-12)
+
+### Bug Fixes
+
+* openapi generate doc false in library project ([bfb6aa6](https://www.github.com/lucafabbri/CleanCore/commit/bfb6aa6d3a80aa826b22f37d9021694673c7f3e5))
+
 <a name="0.5.0"></a>
 ## [0.5.0](https://www.github.com/lucafabbri/CleanCore/releases/tag/v0.5.0) (2024-07-12)
 
