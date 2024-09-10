@@ -4,6 +4,7 @@ using ErrorOr;
 using JsonNet.ContractResolvers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -23,15 +24,15 @@ public static class CleanApplication
     /// Creates the args
     /// </summary>
     /// <param name="args">The args</param>
-    /// <param name="services">The services</param>
+    /// <param name="servicesBuilder">The servicesBuilder</param>
     /// <param name="apiVersioning">The api versioning</param>
     /// <returns>The web application</returns>
     public static WebApplication Create(
         string[] args,
-        Action<IServiceCollection>? services = null,
+        Action<IServiceCollection, IConfiguration>? servicesBuilder = null,
         Action<ApiVersioningOptions>? apiVersioning = null)
     {
-        return Create(args, cleanApplicationOptions: _ => { }, services: services, apiVersioning: apiVersioning);
+        return Create(args, cleanApplicationOptions: _ => { }, servicesBuilder: servicesBuilder, apiVersioning: apiVersioning);
     }
 
     /// <summary>
@@ -39,13 +40,13 @@ public static class CleanApplication
     /// </summary>
     /// <param name="args">The args</param>
     /// <param name="cleanApplicationOptions">The clean application options</param>
-    /// <param name="services">The services</param>
+    /// <param name="servicesBuilder">The servicesBuilder</param>
     /// <param name="apiVersioning">The api versioning</param>
     /// <returns>The app</returns>
     public static WebApplication Create(
         string[] args,
         Action<CleanApplicationOptions> cleanApplicationOptions,
-        Action<IServiceCollection>? services = null,
+        Action<IServiceCollection, IConfiguration>? servicesBuilder = null,
         Action<ApiVersioningOptions>? apiVersioning = null)
     {
 
@@ -54,7 +55,7 @@ public static class CleanApplication
 
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
+        // Add servicesBuilder to the container.
         builder.Services.AddProblemDetails();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddMvc()
@@ -111,7 +112,7 @@ public static class CleanApplication
             options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
         });
 
-        services?.Invoke(builder.Services);
+        servicesBuilder?.Invoke(builder.Services, builder.Configuration);
 
         var app = builder.Build();
         app.UseSwagger();
