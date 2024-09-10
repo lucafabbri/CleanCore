@@ -6,7 +6,7 @@ using CleanCore.Examples.CounterWebApp.DTO;
 using CleanCore.Examples.CounterElasticWebApp.Application.Handlers;
 
 var app = CleanApplication.Create(args,
-    services: (services) => services.AddElasticCounters(typeof(CreateCounterHandler).Assembly));
+    servicesBuilder: (services, configuration) => services.AddElasticCounters(typeof(CreateCounterHandler).Assembly));
 app
     .MapEntity<string, ElasticCounter, ElasticCounterDto>(versions: [1, 2])
             .Find<string, ElasticCounter, ElasticCounterDto>(version: 1)
